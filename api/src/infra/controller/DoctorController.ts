@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { database } from "@/infra/database/service";
+import { database } from "@/infra/services/DoctorService";
 import DoctorController from "@/application/controller/DoctorController";
 import ListDoctorUseCase from "@/application/useCases/doctor/ListDoctors";
 
