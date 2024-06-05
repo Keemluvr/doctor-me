@@ -6,4 +6,8 @@ export default class UserService {
   createUser(phone: string, password: string) {
     return this.connection.user.create({ data: { phone, password } });
   }
+
+  getUserByPhone(phone: string) {
+    return this.connection.user.findUnique({ where: { phone } });
+  }
 }
