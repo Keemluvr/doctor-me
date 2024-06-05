@@ -1,4 +1,5 @@
 import DatabaseService from "@/infra/services";
+import { BussinesError, NotFoundError } from "@/infra/helpers/Errors";
 
 export default class CreateAppointmentUseCase {
   constructor(readonly database: DatabaseService) {}
@@ -8,12 +9,12 @@ export default class CreateAppointmentUseCase {
       patientId
     );
 
-    if (!patient) throw new Error("Patient not found");
+    if (!patient) throw new NotFoundError("Patient not found");
 
     const agenda = await this.database.agendaService.getAgendaById(agendaId);
 
     if (!agenda?.available) {
-      throw new Error("Agenda not available for this date");
+      throw new BussinesError("Agenda not available for this date");
     }
 
     await this.database.agendaService.updateAgenda(agenda.id, {

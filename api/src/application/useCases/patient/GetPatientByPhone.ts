@@ -1,3 +1,4 @@
+import { NotFoundError } from "@/infra/helpers/Errors";
 import DatabaseService from "@/infra/services";
 
 export default class GetPatientByPhoneUseCase {
@@ -13,7 +14,7 @@ export default class GetPatientByPhoneUseCase {
       INCLUDE_DOCTOR
     );
 
-    if (!patient) throw new Error("No patient found");
+    if (!patient) throw new NotFoundError("No patient found");
 
     return patient;
   }

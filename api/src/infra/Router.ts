@@ -14,6 +14,7 @@ import { getDoctorByIdSchema } from "./validationSchema/getDoctorById";
 import { getPatientByPhoneSchema } from "./validationSchema/getPatientByPhone";
 import { createPatientPatientIdSchema } from "./validationSchema/createPatientPatientId";
 import { createAppointmentAgendaIdSchema } from "./validationSchema/createAppointmentAgendaId";
+import { errorHandling } from "./helpers/ErrorHandling";
 
 export default class Router {
   app: express.Express;
@@ -28,6 +29,7 @@ export default class Router {
     this.app.use(express.json());
 
     this.setRoutes();
+    this.app.use(errorHandling);
   }
 
   private setRoutes() {
