@@ -25,6 +25,7 @@ model Patient {
   name         String
   phone        String   @unique
   user         User     @relation(fields: [userId], references: [id])
+  appointment  Appointment[]
   createdAt    DateTime @default(now())
 }
 
@@ -43,6 +44,7 @@ model Doctor {
   attendances  Int
   address      String
   agenda       Agenda[]
+  appointment  Appointment[]
   createdAt    DateTime @default(now())
 }
 
@@ -52,5 +54,16 @@ model Agenda {
   date         DateTime
   doctor       Doctor   @relation(fields: [doctorId], references: [id])
   available    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
+
+model Appointment {
+  id           Int      @id @default(autoincrement())
+  date         DateTime
+  made         Boolean  @default(false)
+  patientId    Int
+  doctorId     Int
+  patient      Patient  @relation(fields: [patientId], references: [id])
+  doctor       Doctor   @relation(fields: [doctorId], references: [id])
   createdAt    DateTime @default(now())
 }
