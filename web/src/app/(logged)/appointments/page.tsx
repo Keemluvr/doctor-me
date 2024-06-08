@@ -1,9 +1,11 @@
+import Appointments from "@/components/templates/appointments";
+
 const metadata = {
   title: "Meus Agendamentos"
 };
 
 export default async function AppointmentsPage() {
-  return <p>Meus Agendamentos</p>;
+  return <Appointments />;
 }
 
 export { metadata };

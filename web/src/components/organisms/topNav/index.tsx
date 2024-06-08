@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { className } from "./styles";
+import { className as style } from "./styles";
 import { Icon } from "../../atoms/icon";
 import { IconName } from "../../atoms/icon";
 import Image from "next/image";
@@ -14,6 +14,9 @@ interface TopNavProps {
 }
 
 const TopNav = ({ children, iconName, title, iconClassName, href = "/" }: TopNavProps) => {
+  const hasIconName = !!iconName;
+  const className = style(hasIconName);
+
   return (
     <header className={className.container} data-testid="header">
       <div className={className.leftContent}>
