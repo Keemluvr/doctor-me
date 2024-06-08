@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { className } from "./styles";
-import { Icon } from "../icon";
-import { IconName } from "../icon";
+import { Icon } from "../../atoms/icon";
+import { IconName } from "../../atoms/icon";
 import Image from "next/image";
 import clsx from "clsx";
 

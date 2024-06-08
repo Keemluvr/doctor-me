@@ -1,7 +1,7 @@
-import Dashboard from "@/modules/dashboard";
+import Dashboard from "@/components/templates/dashboard";
 
 const metadata = {
-  title: "Dashboard"
+  title: "DoctorMe"
 };
 
 export default async function DashboardPage() {

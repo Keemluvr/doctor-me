@@ -1,8 +1,8 @@
 "use client";
 
-import TopNav from "@/components/topNav";
 import Link from "next/link";
-import { Icon } from "@/components/icon";
+import TopNav from "@/components/organisms/topNav";
+import { Icon } from "@/components/atoms/icon";
 import { className } from "./styles";
 
 const Dashboard = () => {

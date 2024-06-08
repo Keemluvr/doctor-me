@@ -1,7 +1,6 @@
 import { authOptions } from "@/config/auth";
-import { redirect } from "@/navigation";
 import { getServerSession } from "next-auth";
-import SignUp from "@/modules/auth/signUp";
+import { redirect } from "next/navigation";
 
 const metadata = {
   title: "Sign Up"
@@ -13,7 +12,7 @@ export default async function SignUpPage() {
 
   if (isAuthenticated) redirect("/admin");
 
-  return <SignUp />;
+  return <p>SignUp</p>;
 }
 
 export { metadata };
